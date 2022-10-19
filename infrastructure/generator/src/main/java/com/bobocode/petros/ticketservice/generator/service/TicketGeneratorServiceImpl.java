@@ -1,4 +1,4 @@
-package com.bobocode.ticketservice.generator.service;
+package com.bobocode.petros.ticketservice.generator.service;
 
 import com.bobocode.petros.ticketservice.adapter.TicketGeneratorAdapter;
 import com.bobocode.petros.ticketservice.entity.Ticket;
