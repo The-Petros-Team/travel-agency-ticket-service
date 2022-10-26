@@ -1,6 +1,5 @@
 spring:
   application:
     name: ticket-service
-  spring:
-    config:
-      import=optional:configserver: https://travel-agency-config-server.herokuapp.com/
+  config:
+    import: configserver:https://travel-agency-config-server.herokuapp.com/
