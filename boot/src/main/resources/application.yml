@@ -3,5 +3,3 @@ spring:
     name: ticket-service
   config:
     import: configserver:https://travel-agency-config-server.herokuapp.com/
-server:
-  port: 9232
