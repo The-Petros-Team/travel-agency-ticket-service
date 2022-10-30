@@ -1,7 +1,7 @@
 package com.bobocode.petros.ticketservice;
 
 import com.bobocode.petros.ticketservice.entity.Ticket;
-import com.bobocode.petros.ticketservice.entity.TicketСharacterization;
+import com.bobocode.petros.ticketservice.entity.ClientTicketRequest;
 import com.bobocode.petros.ticketservice.proto.MultipleTicketResponse;
 import com.bobocode.petros.ticketservice.proto.TicketRequest;
 import com.bobocode.petros.ticketservice.proto.TicketResponse;
@@ -49,8 +49,8 @@ public class GetTicketServiceGrpc extends TicketServiceGrpc.TicketServiceImplBas
                 .build();
     }
 
-    private TicketСharacterization toCharacterization(TicketRequest request) {
-        return new TicketСharacterization(request.getCountryFrom(), request.getCountryTo(),
+    private ClientTicketRequest toCharacterization(TicketRequest request) {
+        return new ClientTicketRequest(request.getCountryFrom(), request.getCountryTo(),
                 request.getCityFrom(), request.getCityTo(),
                 LocalDateTime.ofEpochSecond(request.getStartDate().getSeconds(), request.getStartDate().getNanos(), ZoneOffset.UTC).toLocalDate(),
                 LocalDateTime.ofEpochSecond(request.getEndDate().getSeconds(), request.getEndDate().getNanos(), ZoneOffset.UTC).toLocalDate());
