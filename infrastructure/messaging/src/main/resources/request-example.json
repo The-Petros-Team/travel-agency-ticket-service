@@ -1,0 +1,41 @@
+{
+  "bookingId": "b665c140-d700-4ad3-8986-e0bbcbc2d5bc",
+  "tickets": [
+    {
+      "flightClass": "FIRST",
+      "countryFrom": "country from 1",
+      "cityFrom": "city from 1",
+      "countryTo": "country to 1",
+      "cityTo": "city to 1",
+      "flightDate": "2022-11-03",
+      "price": 200
+    },
+    {
+      "class": "BUSINESS",
+      "countryFrom": "country from 1",
+      "cityFrom": "city from 1",
+      "countryTo": "country to 1",
+      "cityTo": "city to 1",
+      "flightDate": "2022-11-03",
+      "price": 200
+    },
+    {
+      "class": "ECONOMY",
+      "countryFrom": "country from 1",
+      "cityFrom": "city from 1",
+      "countryTo": "country to 1",
+      "cityTo": "city to 1",
+      "flightDate": "2022-11-03",
+      "price": 150
+    },
+    {
+      "class": "ECONOMY",
+      "countryFrom": "country from 1",
+      "cityFrom": "city from 1",
+      "countryTo": "country to 1",
+      "cityTo": "city to 1",
+      "flightDate": "2022-11-03",
+      "price": 150
+    }
+  ]
+}

@@ -1,9 +1,8 @@
 package com.bobocode.petros.ticketservice;
 
 import com.bobocode.petros.ticketservice.entity.Ticket;
-import com.bobocode.petros.ticketservice.entity.ClientTicketRequest;
+import com.bobocode.petros.ticketservice.entity.TicketRequest;
 import com.bobocode.petros.ticketservice.proto.MultipleTicketResponse;
-import com.bobocode.petros.ticketservice.proto.TicketRequest;
 import com.bobocode.petros.ticketservice.proto.TicketResponse;
 import com.bobocode.petros.ticketservice.proto.TicketServiceGrpc;
 import com.bobocode.petros.ticketservice.usecase.GetTicketsUseCase;
@@ -24,7 +23,7 @@ public class GetTicketServiceGrpc extends TicketServiceGrpc.TicketServiceImplBas
     private final GetTicketsUseCase useCase;
 
     @Override
-    public void getTickets(TicketRequest request, StreamObserver<MultipleTicketResponse> responseObserver) {
+    public void getTickets(com.bobocode.petros.ticketservice.proto.TicketRequest request, StreamObserver<MultipleTicketResponse> responseObserver) {
         var response = MultipleTicketResponse.newBuilder()
                 .addAllTickets(useCase.generate(toCharacterization(request))
                         .stream()
@@ -49,8 +48,8 @@ public class GetTicketServiceGrpc extends TicketServiceGrpc.TicketServiceImplBas
                 .build();
     }
 
-    private ClientTicketRequest toCharacterization(TicketRequest request) {
-        return new ClientTicketRequest(request.getCountryFrom(), request.getCountryTo(),
+    private TicketRequest toCharacterization(com.bobocode.petros.ticketservice.proto.TicketRequest request) {
+        return new TicketRequest(request.getCountryFrom(), request.getCountryTo(),
                 request.getCityFrom(), request.getCityTo(),
                 LocalDateTime.ofEpochSecond(request.getStartDate().getSeconds(), request.getStartDate().getNanos(), ZoneOffset.UTC).toLocalDate(),
                 LocalDateTime.ofEpochSecond(request.getEndDate().getSeconds(), request.getEndDate().getNanos(), ZoneOffset.UTC).toLocalDate());
