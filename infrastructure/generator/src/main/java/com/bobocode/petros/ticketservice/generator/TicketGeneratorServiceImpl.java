@@ -2,9 +2,9 @@ package com.bobocode.petros.ticketservice.generator;
 
 
 import com.bobocode.petros.ticketservice.adapter.TicketGeneratorAdapter;
-import com.bobocode.petros.ticketservice.entity.ClientTicketRequest;
+import com.bobocode.petros.ticketservice.entity.TicketRequest;
 import com.bobocode.petros.ticketservice.entity.Ticket;
-import com.bobocode.petros.ticketservice.entity.enumeration.FlightClass;
+import com.bobocode.petros.ticketservice.entity.enumeration.FlightClassEnum;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -17,16 +17,16 @@ import java.util.stream.IntStream;
 public class TicketGeneratorServiceImpl implements TicketGeneratorAdapter {
 
     @Override
-    public List<Ticket> generateTicket(ClientTicketRequest clientTicketRequest) {
+    public List<Ticket> generateTicket(TicketRequest ticketRequest) {
         return IntStream.generate(() -> ThreadLocalRandom.current().nextInt(10, 100))
                 .limit(6)
                 .mapToObj(n -> Ticket.builder()
-                        .flightClass(FlightClass.getRandomFlightClass())
-                        .countryFrom(clientTicketRequest.countryFrom())
-                        .cityFrom(clientTicketRequest.cityFrom())
-                        .countryTo(clientTicketRequest.countryTo())
-                        .cityTo(clientTicketRequest.cityTo())
-                        .flightDate(getRandomFlightDate(clientTicketRequest.startDate(), clientTicketRequest.endDate()))
+                        .flightClass(FlightClassEnum.getRandomFlightClass())
+                        .countryFrom(ticketRequest.countryFrom())
+                        .cityFrom(ticketRequest.cityFrom())
+                        .countryTo(ticketRequest.countryTo())
+                        .cityTo(ticketRequest.cityTo())
+                        .flightDate(getRandomFlightDate(ticketRequest.startDate(), ticketRequest.endDate()))
                         .price(ThreadLocalRandom.current().nextLong(1000))
                         .build()
                 )

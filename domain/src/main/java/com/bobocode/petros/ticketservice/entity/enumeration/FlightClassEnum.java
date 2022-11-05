@@ -2,12 +2,12 @@ package com.bobocode.petros.ticketservice.entity.enumeration;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public enum FlightClass {
+public enum FlightClassEnum {
     FIRST,
     BUSINESS,
     ECONOMY;
 
-    public static FlightClass getRandomFlightClass() {
+    public static FlightClassEnum getRandomFlightClass() {
         return values()[ThreadLocalRandom.current().nextInt(values().length)];
     }
 }
